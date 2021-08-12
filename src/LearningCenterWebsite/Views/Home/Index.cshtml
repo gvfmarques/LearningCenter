@@ -1,0 +1,27 @@
+﻿@{ ViewData["Title"] = "Home Page"; }
+
+<div class="text-left">
+    <h1 class="display-5">Learning Center</h1>
+    <p>The place for technology classes</p>
+
+    <div class="btn btn-success">
+        @Html.ActionLink("Learn More >>", "About")
+    </div>
+</div>
+
+<div class="flex-container">
+    <div class="flex-item">
+        <h3>@Html.ActionLink("Class List", "ClassList")</h3>
+        <p>See all class offerings.</p>
+    </div>
+
+    <div class="flex-item">
+        <h3>@Html.ActionLink("Your enrolled classes", "StudentClasses")</h3>
+        <p>See the classes you are enrolled in.</p>
+    </div>
+
+    <div class="flex-item">
+        <h3>@Html.ActionLink("Enroll in a class", "EnrollInClass")</h3>
+        <p>Take a new class.</p>
+    </div>
+</div>

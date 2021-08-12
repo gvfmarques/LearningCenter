@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
+
+@if (Context.Session.GetString("Email") != null)
+{
+    <form asp-action="Logoff" class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+            <li class="nav-link text-light"   style="color:aliceblue; padding-top:15px">
+                @{
+                    var user = JsonConvert.DeserializeObject<UserModel>(Context.Session.GetString("Email"));
+                }
+                Hello @user.Email!
+            </li>
+            <li>
+                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Logoff">Logout</a>
+            </li>
+        </ul>
+    </form>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Register">Register</a>
+        </li>
+        <li>
+            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Login">Log in</a>
+        </li>
+    </ul>
+}

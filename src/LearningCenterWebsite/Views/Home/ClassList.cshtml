@@ -1,0 +1,38 @@
+﻿@model LearningCenterWebsite.Models.ClassListModel
+
+@{
+    ViewData["Title"] = "Classes";
+}
+
+<style>
+    .col1 {
+        text-align: left;
+    }
+
+    .col2 {
+        width: 40%;
+    }
+</style>
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+
+<div class="row1">
+    <div class="col1 font-weight-bold">Name</div>
+    <div class="col2 font-weight-bold">Description</div>
+    <div class="col font-weight-bold">Price</div>
+</div>
+
+<hr />
+
+@foreach (var item in Model.Classes)
+{
+    <div class="row1">
+        <div class="col1">@item.ClassName</div>
+        <div class="col2">@item.ClassDescription</div>
+        <div class="col">@item.ClassPrice.ToString("C")</div>
+    </div>
+
+    <hr />
+}

@@ -1,0 +1,31 @@
+﻿@model LearningCenterWebsite.Models.LoginModel
+
+@{
+    ViewData["Title"] = "Log In";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>&nbsp;</p>
+<hr />
+
+<form asp-action="LogIn" asp-route-returnurl="@ViewData["ReturnUrl"]">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="row1 form-group">
+        <div class="col1"><label asp-for="Email" class="control-label"></label></div>
+        <div class="col2"><input asp-for="Email" class="form-control" /></div>
+    </div>
+
+    <div class="row1 form-group">
+        <div class="col1"><label asp-for="Password" class="control-label"></label></div>
+        <div class="col2">
+            <p><input asp-for="Password" class="form-control" /></p>
+            <input type="submit" value="Log In" />
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Register">Register a new user</a>
+</div>

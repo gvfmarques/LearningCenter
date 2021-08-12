@@ -1,0 +1,35 @@
+﻿@model LearningCenterWebsite.Models.RegisterModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Create a new account.</p>
+
+<hr />
+
+<form asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="row1 form-group">
+        <div class="col1"><label asp-for="Email" class="control-label"></label></div>
+        <div class="col2"><input asp-for="Email" class="form-control" /></div>
+    </div>
+
+    <div class="row1 form-group">
+        <div class="col1"><label asp-for="Password" class="control-label"></label></div>
+        <div class="col2">
+            <input asp-for="Password" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row1 form-group">
+        <div class="col1"><label asp-for="ConfirmPassword" class="control-label"></label></div>
+        <div class="col2">
+            <p><input asp-for="ConfirmPassword" class="form-control" /></p>
+            <input type="submit" value="Register" />
+        </div>
+    </div>
+</form>

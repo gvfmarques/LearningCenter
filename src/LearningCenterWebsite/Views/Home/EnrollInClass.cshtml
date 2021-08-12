@@ -1,0 +1,63 @@
+﻿@model LearningCenterWebsite.Models.UserClassListModel
+
+@{
+    ViewData["Title"] = "Enroll In Class";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+
+@if (Model.ClassList.Count() > 0)
+{
+    <form asp-action="EnrollInClass" asp-controller="Home" method="post">
+        <input type="hidden" asp-for="UserId" />
+        <input type="hidden" asp-for="ClassId" />
+
+        <div class="row1 form-group">
+            <div class="col1">
+                <select onchange="myFunction()" onload="checkSize()" id="ddlSelectClass" class="form-control" asp-items="@(new SelectList(Model.ClassList, "ClassId", "ClassName"))">
+                    <option value="">--- Select A Class ---</option>
+                </select>
+            </div>
+            <div class="col2">
+                <input name="submit" type="submit" value="Add Class" disabled="disabled" />
+            </div>
+        </div>
+
+        <script>
+            function myFunction() {
+                var x = document.getElementById("ddlSelectClass").value;
+
+                if (x != '') {
+                    $('input[name="submit"]').prop('disabled', false);
+                }
+                else {
+                    $('input[name="submit"]').prop('disabled', true);
+                }
+
+                document.getElementById("ClassId").value = x;
+            }
+        </script>
+
+    </form>
+
+    <hr />
+}
+else
+{
+    <p><i>Congratulations! You have enrolled in all Learning Center's classes.</i></p>
+}
+
+
+@if (Model.ClassList.Count() < 4)
+{
+    <div>
+        <a asp-action="StudentClasses">Your Enrolled Classes</a>
+    </div>
+}
+else
+{
+    <p><i>* You have not enrolled in any classes.</i></p>
+}
+

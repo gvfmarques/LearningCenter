@@ -1,0 +1,13 @@
+﻿@model LearningCenterWebsite.Models.RegisterModel
+
+@{
+    ViewData["Title"] = "Thank You!";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <p>Thank you @Model.Email for your registration with the Learning Center!</p>
+
+    <p>Please <a asp-action="Login">log in</a> to your account.</p>
+</div>

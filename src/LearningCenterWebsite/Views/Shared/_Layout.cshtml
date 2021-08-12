@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Learning Center</title>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    <style>
+        h3 {
+            color: #0080FF;
+        }
+
+        .text-left {
+            padding: 2rem;
+            background-color: #f1f1f1;
+            border-radius: .3rem;
+            margin-bottom: 2rem;
+        }
+
+        .display-4 {
+            font-weight: 500;
+        }
+
+        .btn-success {
+            background-color: #0066CC;
+            border-color: #0066CC;
+        }
+
+            .btn-success:hover {
+                background-color: #004C99;
+                border-color: #004C99;
+            }
+
+            .btn-success:not(:disabled):not(.disabled):active {
+                background-color: #004C99;
+                border-color: #004C99;
+            }
+
+            .btn-success a {
+                color: white;
+            }
+
+                .btn-success a:hover {
+                    text-decoration: none;
+                }
+
+        .flex-container {
+            display: flex;
+        }
+
+        .flex-item {
+            flex: 1 1 0;
+            text-align: left;
+        }
+
+        input {
+            background-color: white;
+            padding: .3rem .5rem;
+            margin: .2rem 0;
+            border: 1px solid #ccc;
+            border-radius: .3rem;
+            display: block;
+        }
+
+            input[type=text] {
+                width: 15rem;
+            }
+
+            input[type=submit]:hover {
+                background-color: gainsboro;
+            }
+
+        .validation-summary-errors {
+            color: #f00;
+        }
+
+        .row1 {
+            display: flex;
+            justify-content: flex-start;
+            align-items: baseline;
+        }
+
+        .col1 {
+            width: 25%;
+            text-align: right;
+            padding-right: 2rem;
+            white-space: nowrap;
+        }
+
+        .col2 {
+            width: 30%;
+        }
+
+        .bg-grey {
+            background-color: #404040;
+        }
+
+        input[type=password] {
+            width: 15rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Learning Center</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Learning Center
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
